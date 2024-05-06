@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2024_05_05_050158) do
   end
 
   create_table "post_images", force: :cascade do |t|
-    t.string "title"
-    t.text "caption"
-    t.integer "user_id"
+    t.string "title", null: false
+    t.text "caption", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2024_05_05_050158) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
