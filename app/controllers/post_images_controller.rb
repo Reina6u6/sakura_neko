@@ -18,6 +18,11 @@ class PostImagesController < ApplicationController
 
   def show
     @post_image = PostImage.find(params[:id])
+    @post_comment = PostComment.new
+  end
+
+
+  def edit
   end
 
   def destroy
@@ -26,6 +31,13 @@ class PostImagesController < ApplicationController
     redirect_to post_images_path
   end
 
+  def search
+   @post_images = PostImage.where("title LIKE ?", "%#{params[:search]}%")
+  end
+
+  def tag
+   @post_images = PostImage.tagged_with(params[:tag])
+  end
 
   private
 

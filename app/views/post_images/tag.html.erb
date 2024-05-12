@@ -1,12 +1,18 @@
+<% if @post_images.present? %>
 <% @post_images.each do |post_image| %>
  <div>
+  <h1>検索結果</h1>
   <%= link_to post_image_path(post_image.id) do %>
    <%= image_tag post_image.get_image %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag post_image.user.get_profile_image(100,100) %></p>
+　<p>投稿ユーザー画像：<%= image_tag post_image.user.get_profile_image(100,100) %></p>
   <p>タイトル:<%= post_image.title %></p>
   <p>本文:<%= post_image.caption %></p>
   <p>ユーザーネーム:<%= post_image.user.name %></p>
   <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
-  <% end %>
  </div>
+<% end %>
+<% else %>
+ <h1>タグ検索結果</h1>
+ <p>検索結果がありません。</p>
+<% end %>

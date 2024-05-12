@@ -6,6 +6,7 @@
   <% end %>
 </div>
 
+
 <% @post_images.each do |post_image| %>
 <div>
   <%= link_to post_image_path(post_image.id) do %>
@@ -15,5 +16,24 @@
   <p>タイトル：<%= post_image.title %></p>
   <p>本文:<%= post_image.caption %></p>
   <p>ユーザーネーム：<%= post_image.user.name %></p>
+  <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
+
 </div>
+
 <% end %>
+いいね一覧
+<% @favorite_post_images.each do |post_image| %>
+  <%= post_image.title %>
+  <p>本文:<%= post_image.caption %></p>
+<% end %>
+
+<%= form_tag(search_post_images_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag("検索") %>
+<% end %>
+
+<%= form_tag(search_post_images_path, method: :get) do %>
+  <%= text_field_tag(:tag, params[:tag]) %>
+  <%= submit_tag("タグ検索") %>
+<% end %>
+
