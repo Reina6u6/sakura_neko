@@ -32,7 +32,7 @@
   <%= submit_tag("検索") %>
 <% end %>
 
-<%= form_tag(search_post_images_path, method: :get) do %>
+<%= form_tag(tag_post_images_path, method: :get) do %>
   <%= text_field_tag(:tag, params[:tag]) %>
   <%= submit_tag("タグ検索") %>
 <% end %>

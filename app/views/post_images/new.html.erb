@@ -5,10 +5,13 @@
 
  <h4>画像</h4>
  <%= f.file_field :image, accept: "image/*" %>
+<h4>タグ</h4>
+<%= f.text_field :tag_list %>
 
  <h4>本文</h4>
  <%= f.text_area :caption %>
  <%= f.submit "投稿" %>
+
 <% end %>
 
 

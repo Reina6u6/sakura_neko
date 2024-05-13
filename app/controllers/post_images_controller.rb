@@ -14,6 +14,7 @@ class PostImagesController < ApplicationController
 
   def index
    @post_images = PostImage.all
+   @tags = PostImage.tag_counts_on(:tags)
   end
 
   def show
@@ -36,8 +37,15 @@ class PostImagesController < ApplicationController
   end
 
   def tag
-   @post_images = PostImage.tagged_with(params[:tag])
+     @post_images = PostImage.tagged_with(params[:tag])
+    # if @post_images.empty?
+    #   flash[:notice] = "タグに関連する投稿がありません。"
+    #   redirect_to post_images_path
+    # end
+
   end
+
+
 
   private
 

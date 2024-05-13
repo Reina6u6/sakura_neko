@@ -5,7 +5,7 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-acts_as_taggable_on :tags
+acts_as_taggable
 
   def self.search(title)
     PostImage.where(title: title)
