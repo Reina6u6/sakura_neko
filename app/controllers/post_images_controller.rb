@@ -23,6 +23,8 @@ class PostImagesController < ApplicationController
   end
 
 
+  def edit
+  end
 
   def destroy
     post_image = PostImage.find(params[:id])
