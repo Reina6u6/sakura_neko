@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_out_path_for(resource)
-     about_path
+      '/'
   end
 
   private
- 
+
   def admin_controller?
     self.class.module_parent_name == 'Admin'
   end
