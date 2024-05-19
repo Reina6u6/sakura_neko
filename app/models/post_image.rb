@@ -5,6 +5,11 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  validates :title, presence: true
+  validates :image, presence: true
+  validates :tag_list, presence: true
+  validates :caption, presence: true
+
 acts_as_taggable
 
   def self.search(title)
