@@ -2,16 +2,27 @@
 <html>
   <head>
     <title>SakuraNeko</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://kit.fontawesome.com/6d9a1fd727.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
      <header>
+      <nav class="navbar bg-body-tertiary">
+       <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <form class="d-flex" role="search">
+         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+         <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+       </div>
+      </nav>
+       </div>
         <% if user_signed_in? %>
          <li>
           <%= link_to '投稿フォーム', new_post_image_path %>
