@@ -10,7 +10,6 @@
 
 いいね一覧
 <% @favorite_post_images.each do |post_image| %>
-　<%= image_tag post_image.get_image %>
   <%= post_image.title %>
   <p>本文:<%= post_image.caption %></p>
 <% end %>
