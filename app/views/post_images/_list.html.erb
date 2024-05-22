@@ -1,18 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="UTF-8" />
+  <h1>投稿一覧</h1>
+  <link rel="stylesheet" href="_list.html.css" />
+   <% post_images.each do |post_image| %>
+    <div class="container text-center">
+     <div class="row justify-content-center">
+      <div class="col-4">
+       <div class="my-3">
+        <%= link_to post_image_path(post_image.id) do %>
+         <%= image_tag post_image.get_image %>
+        <% end %>
+       </div>
+      </div>
 
-<% post_images.each do |post_image| %>
- <div>
-  <%= link_to post_image_path(post_image.id) do %>
-   <%= image_tag post_image.get_image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag post_image.user.get_profile_image(100,100) %></p>
-  <p>タイトル:<%= post_image.title %></p>
-  <p>本文:<%= post_image.caption %></p>
-  <p>ユーザーネーム:<%= post_image.user.name %></p>
-  <p>タグ：
-  <% post_image.tag_list.each do |tag| %>
-   <%= link_to tag, tag_post_images_path(tag: tag) %>
-  <% end %>
-  <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
-  <% end %>
-  <%= paginate post_images, window: 2  %>
- </div>
+      <div class="col-8">
+       <div class="mt-4">
+        <p>タイトル:<%= post_image.title %></p>
+        <p>本文:<%= post_image.caption %></p>
+        <p>ユーザーネーム:<%= post_image.user.name %></p>
+        <p>タグ：
+         <% post_image.tag_list.each do |tag| %>
+          <%= link_to tag, tag_post_images_path(tag: tag) %>
+         <% end %>
+        </p>
+        <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
+       </div>
+      </div>
+     </div>
+     <div class="mb-5"></div>
+    </div>
+   <% end %>
+ </head>
+</html>
+   <%= paginate post_images, window: 2  %>
+
+
+
+
+
+
+
+
