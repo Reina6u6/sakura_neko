@@ -1,4 +1,4 @@
-<div>
+<div class="text-center">
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
   <% if @user == current_user %>
@@ -7,21 +7,15 @@
 </div>
 
 
-
-いいね一覧
-<% @favorite_post_images.each do |post_image| %>
-  <%= post_image.title %>
+<div class="text-center">
+ <h2>いいね一覧</h2>
+ <% @favorite_post_images.each do |post_image| %>
+  <%= link_to post_image_path(post_image.id) do %>
+   <%= image_tag post_image.get_image %>
+  <% end %>
+  <p>タイトル：<%= post_image.title %></p>
   <p>本文:<%= post_image.caption %></p>
-<% end %>
-
-<%= form_tag(search_post_images_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag("検索") %>
-<% end %>
-
-<%= form_tag(tag_post_images_path, method: :get) do %>
-  <%= text_field_tag(:tag, params[:tag]) %>
-  <%= submit_tag("タグ検索") %>
-<% end %>
+ <% end %>
+</div>
 
 <%= render 'post_images/list', post_images: @post_images %>

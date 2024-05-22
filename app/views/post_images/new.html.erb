@@ -1,27 +1,32 @@
-<h1>画像投稿フォーム</h1>
+<div class="row justify-content-center">
+ <div class="col-md-6">
+  <h1>画像投稿フォーム</h1>
 
-<% if @post_image.errors.any? %>
+  <% if @post_image.errors.any? %>
    <%= @post_image.errors.count %>件のエラーが発生しました
    <ul>
-     <% @post_image.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-     <% end %>
+    <% @post_image.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
    </ul>
-<% end %>
+  <% end %>
 
-<%= form_with model: @post_image do |f| %>
- <h4>タイトル</h4>
- <%= f.text_field :title %>
+  <%= form_with model: @post_image do |f| %>
+   <h4>タイトル</h4>
+  <%= f.text_field :title %>
 
- <h4>画像</h4>
- <%= f.file_field :image, accept: "image/*" %>
-<h4>タグ</h4>
-<%= f.text_field :tag_list %>
+  <h4>画像</h4>
+   <%= f.file_field :image, accept: "image/*" %>
 
- <h4>本文</h4>
- <%= f.text_area :caption %>
- <%= f.submit "投稿" %>
+  <h4>タグ</h4>
+   <%= f.text_field :tag_list %>
 
-<% end %>
+  <h4>本文</h4>
+   <%= f.text_area :caption %>
+   <%= f.submit "投稿" %>
+
+  <% end %>
+ </div>
+</div>
 
 
