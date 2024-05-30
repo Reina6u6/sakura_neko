@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
  <div class="col-md-6">
-  <h1>画像投稿フォーム</h1>
+  <h1 class="bg-info text-center text-white">投稿フォーム</h1>
 
   <% if @post_image.errors.any? %>
    <%= @post_image.errors.count %>件のエラーが発生しました
@@ -12,16 +12,24 @@
   <% end %>
 
   <%= form_with model: @post_image do |f| %>
-   <h4>タイトル</h4>
+   <div class="font-weight-bold text-info text-decoration-underline">
+    <h4><u>タイトル</u></h4>
+   </div>
   <%= f.text_field :title %>
 
-  <h4>画像</h4>
+  <div class="font-weight-bold text-info text-decoration-underline">
+   <h4><u>画像</u></h4>
+  </div>
    <%= f.file_field :image, accept: "image/*" %>
 
-  <h4>タグ</h4>
+  <div class="font-weight-bold text-info text-decoration-underline">
+   <h4><u>タグ</u></h4>
+  </div>
    <%= f.text_field :tag_list %>
 
-  <h4>本文</h4>
+  <div class="font-weight-bold text-info text-decoration-underline">
+   <h4><u>本文</u></h4>
+  </div>
    <%= f.text_area :caption %><br>
    <%= f.submit "送信する", class: "btn btn-outline-info" %>
 
