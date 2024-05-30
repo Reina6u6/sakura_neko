@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root to: "homes#top"
   devise_for :users
 
+
   resources :post_images, only: [:new, :create, :index, :show, :destroy, :edit] do
     collection do
       get :search
@@ -23,4 +24,10 @@ Rails.application.routes.draw do
 
   get "homes/about", to: "homes#about", as: "about"
   get "homes/top", to: "homes#top", as: "top"
+
+  devise_scope :user do
+   post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+  end
+
+
 end

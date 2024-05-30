@@ -42,12 +42,15 @@
                      <%= form_tag(tag_post_images_path, method: :get, class: "form-inline") do %>
                       <div class="form-group mb-2">
                         <%= text_field_tag(:tag, params[:tag], class: "form-control mr-sm-2") %>
-                        <%= submit_tag("タグ検索", class:"btn btn-outline-info") %>
+                        <%= submit_tag("タグ検索", class: "btn btn-outline-info") %>
                       </div>
                      <% end %>
                     </div>
 
                 <% else %>
+                  <li class="d-inline-block">
+                    <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post %>
+                  </li>
                   <li class="d-inline-block">
                     <%= link_to "新規登録", new_user_registration_path %>
                   </li>

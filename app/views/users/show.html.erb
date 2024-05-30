@@ -8,13 +8,13 @@
 
 
 <div class="text-center">
- <h2>いいね一覧</h2>
+ <div class="p-3 mb-2 bg-warning text-dark"><h2>いいね一覧</h2></div>
  <% @favorite_post_images.each do |post_image| %>
   <%= link_to post_image_path(post_image.id) do %>
    <%= image_tag post_image.get_image %>
   <% end %>
-  <p>タイトル：<%= post_image.title %></p>
-  <p>本文:<%= post_image.caption %></p>
+  <div class="font-weight-bold text-success"><タイトル></div><%= post_image.title %>
+  <div class="font-weight-bold text-success"><本文></div><%= post_image.caption %></p>
  <% end %>
 </div>
 

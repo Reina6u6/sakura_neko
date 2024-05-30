@@ -39,6 +39,6 @@
 <div class="text-center">
   <%= form_with model: [@post_image, @post_comment] do |f| %>
   　<%= f.text_area :comment, rows: '5', placeholder: "コメントを投稿する" %>
-  　<%= f.submit "送信する" %>
+  　<%= f.submit "送信する", class: "btn btn-primary" %>
   <% end %>
 </div>

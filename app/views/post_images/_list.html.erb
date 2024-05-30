@@ -2,7 +2,7 @@
 <html lang="ja">
  <head>
   <meta charset="UTF-8" />
-  <div class="text-center"><h1>投稿一覧</h1><div>
+  <div class="text-center p-3 mb-2 bg-success text-white"><h1>投稿一覧</h1></div>
   <link rel="stylesheet" href="_list.html.css" />
    <% post_images.each do |post_image| %>
     <div class="container text-center">
@@ -17,10 +17,10 @@
 
       <div class="col-8">
        <div class="mt-4">
-        <p>タイトル:<%= post_image.title %></p>
-        <p>本文:<%= post_image.caption %></p>
-        <p>ユーザーネーム:<%= post_image.user.name %></p>
-        <p>タグ：
+        <div class="font-weight-bold text-success"><タイトル></div><%= post_image.title %>
+        <div class="font-weight-bold text-success"><本文></div><%= post_image.caption %>
+        <div class="font-weight-bold text-success"><ユーザーネーム></div><%= post_image.user.name %>
+        <div class="font-weight-bold text-success"><タグ></div>
          <% post_image.tag_list.each do |tag| %>
           <%= link_to tag, tag_post_images_path(tag: tag) %>
          <% end %>
@@ -34,6 +34,11 @@
    <% end %>
  </head>
 </html>
+<% if user_signed_in? && !current_user.guest_user? %>
+<div class="row">
+  <%= link_to "",edit_user_path(current_user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{current_user.id}" %>
+</div>
+<% end %>
    <%= paginate post_images, window: 2  %>
 
 
