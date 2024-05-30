@@ -2,7 +2,7 @@
 <html lang="ja">
  <head>
   <meta charset="UTF-8" />
-  <div class="text-center p-3 mb-2 bg-success text-white"><h1>投稿一覧</h1></div>
+  <h1  class="text-center text-primary">|投稿一覧|</h1>
   <link rel="stylesheet" href="_list.html.css" />
    <% post_images.each do |post_image| %>
     <div class="container text-center">
@@ -25,7 +25,7 @@
           <%= link_to tag, tag_post_images_path(tag: tag) %>
          <% end %>
         </p>
-        <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
+        <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) , { style: "color: black;" } %></p>
        </div>
       </div>
      </div>
