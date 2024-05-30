@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:destroy]
   end
 
-  root to: "post_images#index"
+  root to: "homes#top"
   devise_for :users
 
   resources :post_images, only: [:new, :create, :index, :show, :destroy, :edit] do
@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   get "homes/about", to: "homes#about", as: "about"
+  get "homes/top", to: "homes#top", as: "top"
 end

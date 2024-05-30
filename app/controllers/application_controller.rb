@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_out_path_for(resource)
-      post_images_path
+      top_path
   end
 
   private

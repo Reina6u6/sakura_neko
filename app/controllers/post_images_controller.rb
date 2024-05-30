@@ -22,8 +22,12 @@ class PostImagesController < ApplicationController
   end
 
   def show
-    @post_image = PostImage.find(params[:id])
-    @post_comment = PostComment.new
+    if current_user.nil?
+      redirect_to top_path
+    else
+     @post_image = PostImage.find(params[:id])
+     @post_comment = PostComment.new
+    end
   end
 
   def destroy
